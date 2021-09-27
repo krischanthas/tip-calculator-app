@@ -136,14 +136,19 @@ input {
   border-radius: 0.5rem;
   display: flex;
   justify-content: flex-end;
-}
-input[type="text"] {
   font-size: 1.5rem;
   color: var(--dark-cyan);
   font-weight: bold;
   text-align: right;
   padding: 1rem 2rem;
 }
+/* input[type="text"] {
+  font-size: 1.5rem;
+  color: var(--dark-cyan);
+  font-weight: bold;
+  text-align: right;
+  padding: 1rem 2rem;
+} */
 .icon {
   position: absolute;
   padding: 1rem;
