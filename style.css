@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+:root {
+  --primary-cyan: hsl(172, 67%, 45%);
+  --dark-cyan: hsl(183, 100%, 15%);
+  --dark-grey-cyan: hsl(186, 14%, 43%);
+  --dark-grey-cyan2: hsl(184, 14%, 56%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --light-grayish-cyan2: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-width: 375px;
+  font-size: 24px;
+  font-family: "Space Mono", monospace;
+  background-color: var(--light-grayish-cyan);
+}
+p {
+  font-size: 0.75rem;
+}
+.calculator {
+  display: flex;
+  padding: 3rem 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  text-transform: uppercase;
+  color: var(--dark-grey-cyan);
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.5rem;
+}
+.container {
+  width: 75%;
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 2rem 2rem;
+  display: flex;
+  background-color: var(--white);
+  border-radius: 2rem;
+}
+.inputs {
+  width: 50%;
+  padding: 0 1.5rem;
+}
+.inputs > div {
+  padding: 1rem 0;
+}
+.tip-selection > div {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "five ten fifteen"
+    "twenty twentyfive custom";
+  grid-gap: 12px;
+  font-size: 1rem;
+  text-align: center;
+}
+.tip {
+  padding: 0.75rem 1rem;
+  background-color: var(--dark-cyan);
+  border-radius: 0.5rem;
+  color: var(--white);
+  font-weight: 700;
+}
+.tip:hover,
+.tip:focus,
+#customTip:hover,
+#customTip:focus {
+  background: var(--primary-cyan);
+  -webkit-transition: background 0.5;
+  transition: background 0.5;
+  cursor: pointer;
+  color: var(--dark-cyan);
+}
+.tip-selection > div:nth-child(1) {
+  grid-area: five;
+}
+.tip-selection > div:nth-child(2) {
+  grid-area: ten;
+}
+.tip-selection > div:nth-child(3) {
+  grid-area: fifteen;
+}
+.tip-selection > div:nth-child(4) {
+  grid-area: twenty;
+}
+.tip-selection > div:nth-child(5) {
+  grid-area: twentyfive;
+}
+.tip-selection > div:nth-child(6) {
+  grid-area: custom;
+}
+.custom {
+  padding: 0;
+  border-radius: 0.5rem;
+  background: var(--dark-cyan);
+}
+#customTip {
+  padding: 0;
+  font-size: 1rem;
+  text-align: center;
+  background: var(--dark-cyan);
+  border: none;
+  border-radius: 0.5rem;
+}
+#customTip::placeholder {
+  color: var(--white);
+}
+#customTip:hover,
+#customTip:focus {
+  outline: none;
+}
+
+.active {
+  background-color: hsl(172, 67%, 45%) !important;
+  color: hsl(183, 100%, 15%);
+}
+
+input {
+  width: 100%;
+  height: 50px;
+  background-color: var(--light-grayish-cyan2);
+  border: none;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+input[type="text"] {
+  font-size: 1.5rem;
+  color: var(--dark-cyan);
+  font-weight: bold;
+  text-align: right;
+  padding: 1rem 2rem;
+}
+.icon {
+  position: absolute;
+  padding: 1rem;
+}
+
+.summary {
+  width: 50%;
+  background-color: var(--dark-cyan);
+  color: var(--white);
+  padding: 2rem 2rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+}
+.summary p {
+  color: var(--dark-grey-cyan);
+}
+.summary div {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+.summary div:nth-child(3) {
+  margin-top: 6.5rem;
+  margin-bottom: 0;
+}
+.total {
+  color: var(--primary-cyan);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.reset {
+  background-color: var(--primary-cyan);
+  border: none;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.reset:hover,
+.reset:focus {
+  background: transparent;
+  -webkit-transition: background 0.5;
+  transition: background 0.5;
+  border: 0.5px solid rgba(117, 116, 116, 0.329);
+  color: #fff;
+}
+.attribution {
+  text-align: center;
+}
+
+@media (max-width: 750px) {
+  .container {
+    flex-direction: column;
+    min-width: 90%;
+
+  }
+  .inputs,
+  .summary {
+    width: 100%;
+  }
+
+  .tip-selection > div {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "five ten"
+      "fifteen twenty"
+      "twentyfive custom";
+  }
+}
