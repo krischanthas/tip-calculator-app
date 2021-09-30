@@ -17,13 +17,13 @@ let customTip = null;
 const updateTotals = (billTotal, selectedTip, customTip, partySize) => {
   if (customTip === null) {
     tipAmountPerPerson.innerHTML =
-      "$" + ((billTotal * selectedTip) / partySize).toFixed(2);
+      "$" + ((billTotal * selectedTip) / partySize);
     totalAmountPerPerson.innerHTML =
-      "$" + ((billTotal * (1 + selectedTip)) / partySize).toFixed(2);
+      "$" + ((billTotal * (1 + selectedTip)) / partySize);
   } else {
-    tipAmountPerPerson.innerHTML = "$" + (customTip / partySize).toFixed(2);
+    tipAmountPerPerson.innerHTML = "$" + (customTip / partySize);
     totalAmountPerPerson.innerHTML =
-      "$" + ((billTotal + customTip) / partySize).toFixed(2);
+      "$" + ((billTotal + customTip) / partySize);
   }
 };
 
@@ -55,12 +55,12 @@ billInput.addEventListener("change", (event) => {
 });
 
 partySizeInput.addEventListener("change", (event) => {
-  partySize = parseInt(event.target.value);
+  partySize = parseInt(event.target.value).toFixed(2);
   updateTotals(billTotal, selectedTip, customTip, partySize);
 });
 
 customOption.addEventListener("change", (event) => {
-  customTip = parseInt(event.target.value);
+  customTip = parseInt(event.target.value).toFixed(2);
   updateTotals(billTotal, selectedTip, customTip, partySize);
 });
 

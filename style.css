@@ -169,6 +169,8 @@ input {
   margin: 2rem 0;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  overflow: hidden;
 }
 .summary div:nth-child(3) {
   margin-top: 6.5rem;
