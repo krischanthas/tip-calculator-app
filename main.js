@@ -21,9 +21,9 @@ const updateTotals = (billTotal, selectedTip, customTip, partySize) => {
     totalAmountPerPerson.innerHTML =
       "$" + ((billTotal * (1 + selectedTip)) / partySize);
   } else {
-    tipAmountPerPerson.innerHTML = "$" + (customTip / partySize);
+    tipAmountPerPerson.innerHTML = "$" + (customTip / partySize).toFixed(2);
     totalAmountPerPerson.innerHTML =
-      "$" + ((billTotal + customTip) / partySize);
+      "$" + ((billTotal + customTip) / partySize).toFixed(2);
   }
 };
 
@@ -50,17 +50,17 @@ const resetValues = () => {
 
 // event listener for user inputs
 billInput.addEventListener("change", (event) => {
-  billTotal = parseInt(event.target.value);
+  billTotal = parseFloat(event.target.value);
   updateTotals(billTotal, selectedTip, customTip, partySize);
 });
 
 partySizeInput.addEventListener("change", (event) => {
-  partySize = parseInt(event.target.value).toFixed(2);
+  partySize = parseInt(event.target.value);
   updateTotals(billTotal, selectedTip, customTip, partySize);
 });
 
 customOption.addEventListener("change", (event) => {
-  customTip = parseInt(event.target.value).toFixed(2);
+  customTip = parseFloat(event.target.value);
   updateTotals(billTotal, selectedTip, customTip, partySize);
 });
 
