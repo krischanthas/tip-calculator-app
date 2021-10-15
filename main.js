@@ -17,9 +17,9 @@ let customTip = null;
 const updateTotals = (billTotal, selectedTip, customTip, partySize) => {
   if (customTip === null) {
     tipAmountPerPerson.innerHTML =
-      "$" + ((billTotal * selectedTip) / partySize);
+      "$" + ((billTotal * selectedTip) / partySize).toFixed(2);
     totalAmountPerPerson.innerHTML =
-      "$" + ((billTotal * (1 + selectedTip)) / partySize);
+      "$" + ((billTotal * (1 + selectedTip)) / partySize).toFixed(2);
   } else {
     tipAmountPerPerson.innerHTML = "$" + (customTip / partySize).toFixed(2);
     totalAmountPerPerson.innerHTML =
